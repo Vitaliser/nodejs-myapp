@@ -1,19 +1,22 @@
 {
-  "name": "myapp",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-	"start": "node -e \"const cmd = process.env.NODE_ENV === 'production' ? 'node' : 'nodemon'; require('child_process').execSync(cmd + ' ./bin/www', { stdio: [0,1,2] });\""
-  },
-  "dependencies": {
-	"cookie-parser": "~1.4.4",
-	"debug": "~2.6.9",
-	"express": "~4.16.1",
-	"http-errors": "~1.6.3",
-	"morgan": "~1.9.1",
-	"pug": "2.0.0-beta11"
-  },
-  "devDependencies": {
-	"nodemon": "^2.0.4"
-  }
+ "name": "myapp",
+ "version": "0.0.0",
+ "private": true,
+ "scripts": {
+  "start": "node -e \"const cmd = process.env.NODE_ENV === 'production' ? 'node' : 'nodemon'; require('child_process').execSync(cmd + ' ./bin/www', { stdio: [0,1,2] });\""
+ },
+ "dependencies": {
+  "cookie-parser": "^1.4.5",
+  "debug": "~2.6.9",
+  "express": "~4.16.1",
+  "http-errors": "~1.6.3",
+  "morgan": "~1.9.1",
+  "pg": "^8.3.3",
+  "pg-hstore": "^2.3.3",
+  "pug": "^2.0.4",
+  "sequelize": "^6.3.5"
+ },
+ "devDependencies": {
+  "nodemon": "^2.0.4"
+ }
 }
