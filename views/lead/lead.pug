@@ -1,0 +1,32 @@
+doctype html
+html(lang='eng')
+	include ../common/head
+	+head("Leads")
+	body
+		header
+			include ../common/navbar
+			+navbar()
+			.container
+				.row.align-items-center
+					.col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+						h1 Lead
+						.table-responsive
+							table.table
+								thead.thead-light
+									tr
+										th(scope="col").text-center Email
+										th(scope="col").text-center Edit
+										th(scope="col").text-center Delete
+									tr
+								tbody
+									tr(id=lead.id)
+										td.text-center
+											span #{lead.email}
+										td.text-center
+											a(href="/lead/" + lead.id + "/edit").btn.btn-outline-info Edit
+										td.text-center
+											form(action="/lead/" + lead.id + "/delete", method="POST")
+												button(type="submit").btn.btn-danger Delete
+		include ../common/footer
+		+footer()
+		script(src='/javascripts/leads.js')

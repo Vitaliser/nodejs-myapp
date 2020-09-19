@@ -1,0 +1,36 @@
+- let i = 1;
+doctype html
+html(lang='eng')
+	include ../common/head
+	+head("Leads")
+	body
+		header
+			include ../common/navbar
+			+navbar()
+			.container
+				.row.align-items-center
+					.col-md-6.order-md-1.text-center.text-md-left.pr-md-5
+						h1 Leads
+						.table-responsive
+							table.table.table-bordered.table-hover
+								thead.thead-light
+									tr.text-center
+										th(scope="col").text-center #
+										th(scope="col").text-center Email
+										th(scope="col").text-center Actions
+										th(scope="col").text-center Delete
+									tr.text-center
+								tbody
+									for lead in leads
+										tr(id=lead.id)
+											td.text-center
+												span=i++
+											td.text-center
+												span #{lead.email}
+											td.text-center
+												a(href="/lead/" + lead.id).btn.btn-outline-info Details
+											td.text-center
+												button(onClick=`deleteLead('${lead.id}')`).btn.btn-danger Delete
+		include ../common/footer
+		+footer()
+		script(src='/javascripts/leads.js')
