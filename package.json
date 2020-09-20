@@ -6,15 +6,21 @@
   "start": "node -e \"const cmd = process.env.NODE_ENV === 'production' ? 'node' : 'nodemon'; require('child_process').execSync(cmd + ' ./bin/www', { stdio: [0,1,2] });\""
  },
  "dependencies": {
+  "bcrypt": "^5.0.0",
+  "connect-flash": "^0.1.1",
   "cookie-parser": "^1.4.5",
   "debug": "~2.6.9",
   "express": "~4.16.1",
+  "express-session": "^1.17.1",
   "http-errors": "~1.6.3",
   "morgan": "~1.9.1",
+  "passport": "^0.4.1",
+  "passport-local": "^1.0.0",
   "pg": "^8.3.3",
   "pg-hstore": "^2.3.3",
   "pug": "^2.0.4",
-  "sequelize": "^6.3.5"
+  "sequelize": "^6.3.5",
+  "validator": "^13.1.17"
  },
  "devDependencies": {
   "nodemon": "^2.0.4"
