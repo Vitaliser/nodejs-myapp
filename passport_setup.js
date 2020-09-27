@@ -38,7 +38,7 @@ module.exports = function (passport) {
 			passwordField: 'password',
 			passReqToCallback: true
 		},
-		function (email, password, done) {
+		function (req, email, password, done) { //   Authenticate users
 			return models.User.findOne({
 				where: {
 					'email': email
@@ -46,17 +46,17 @@ module.exports = function (passport) {
 			}).then(user => {
 				if (user == null) {
 					req.flash('message', 'Incorrect credentials.')
-					return done(null, false);
-				} else if (user.password == null || user.password == undefined) {
+					return done(null, false)
+				} else if (user.password === null || user.password === undefined) {
 					req.flash('message', 'You must reset your password')
-					return done(null, false);
-				} else if (validPassword(user, password)) {
+					return done(null, false)
+				} else if (!validPassword(user, password)) {
 					req.flash('message', 'Incorrect credentials')
-					return done(null, false);
+					return done(null, false)
 				}
-				return done(null, false)
+				return done(null, user);
 			}).catch(err => {
-				done(err, false)
+				done(err, false);
 			})
 		}))
 }
