@@ -1,8 +1,12 @@
 doctype html
 html(lang='eng')
-  include common/head
-  +head("Error")
-  body
-     h1= message
-     h2= error.status
-     pre #{error.stack}
+    include common/head
+    +head("Error")
+    body
+        header
+            .container
+                .row
+                    .col-md-12
+                        h1= message
+                        h2= error.status
+                        pre #{error.stack}
